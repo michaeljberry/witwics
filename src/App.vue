@@ -10,16 +10,14 @@ const currentPath = ref(route.path)
 watch(
   () => route.path,
   (newPath) => {
-    console.log(newPath)
     currentPath.value = newPath
-    console.log(currentPath)
   }
 )
 </script>
 
 <template>
   <RouterView class="isolate" />
-  <footer class="mx-auto mt-32 max-w-7xl px-6 lg:px-8">
+  <footer class="mx-auto mt-8 max-w-7xl">
     <ProgressBar :currentPath="currentPath" />
   </footer>
 </template>
