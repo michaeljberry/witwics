@@ -1,55 +1,54 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useStepStore = defineStore('step', () => {
-
-  const steps = ref({
+export const useStageStore = defineStore('stage', () => {
+  const stages = ref({
     home: {
       name: 'Home',
       href: '/',
-      status: '',
+      status: ''
     },
     leg1: {
       name: 'Leg 1',
       href: '/chase/leg1',
-      status: '',
+      status: ''
     },
     leg2: {
       name: 'Leg 2',
       href: '/chase/leg2',
-      status: '',
+      status: ''
     },
     leg3: {
       name: 'Leg 3',
       href: '/chase/leg3',
-      status: '',
+      status: ''
     },
     lightningRound: {
       name: 'Leg 1',
-      href: '/chase/lightninground',
-      status: '',
+      href: '/chase/lightningRound',
+      status: ''
     },
     wager: {
       name: 'Wager',
       href: '/chase/wager',
-      status: '',
+      status: ''
     },
     lockUp: {
       name: 'Lock Up',
-      href: '/chase/lockup',
-      status: '',
+      href: '/chase/lockUp',
+      status: ''
     },
     headToHead: {
       name: 'Head to Head',
-      href: '/chase/headtohead',
-      status: '',
+      href: '/chase/headToHead',
+      status: ''
     },
     finalChase: {
       name: 'Final Chase',
-      href: '/chase/finalchase',
-      status: '',
-    },
+      href: '/chase/finalChase',
+      status: ''
+    }
   })
 
-  return { steps }
+  return { stages }
 })
