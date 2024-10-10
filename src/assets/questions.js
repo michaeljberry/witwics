@@ -5,19 +5,19 @@ function getStageInfo(stage) {
 const questions = {
   leg1: {
     type: 'leg',
-    question: `Our first clue comes from a secret agent at Acme HQ. According to our agent, Carmen 
-    Sandiego has been spotted at a luxurious hotel in a city known for its romantic canals. The 
-    agent overheard Carmen discussing plans to meet with a mysterious contact at the hotel's 
+    question: `Our first clue comes from a secret agent at Acme HQ. According to our agent, Carmen
+    Sandiego has been spotted at a luxurious hotel in a city known for its romantic canals. The
+    agent overheard Carmen discussing plans to meet with a mysterious contact at the hotel's
     famous opera house.`,
     clues: ['A city known for its romantic canals', 'Hotel has a famous opera house'],
     image: '/carmen-sandiego-graphics_europe-1.jpg',
     answers: {
       1: {
-        option: 'Venice, Italy',
-        correct: true
+        option: 'Amsterdam, Netherlands'
       },
       2: {
-        option: 'Amsterdam, Netherlands'
+        option: 'Venice, Italy',
+        correct: true
       },
       3: {
         option: 'Copenhagen, Denmark'
@@ -26,11 +26,12 @@ const questions = {
   },
   leg2: {
     type: 'leg',
-    question: `I recently visited a country with a rich history and a famous landmark shaped like a 
+    question: `I recently visited a country with a rich history and a famous landmark shaped like a
     pyramid. The locals were incredibly hospitable and the food was delicious. I even had the chance
     to explore an ancient tomb and learn about the pharaohs who ruled the land.`,
     guest: 'David Beckham',
-    image: '/carmen-sandiego-graphics_celebrity.jpg',
+    image: '/carmen-sandiego-graphics_world-1.jpg',
+    celebrityImage: '/carmen-sandiego-graphics_celebrity.jpg',
     clues: [
       'Country with a rich history',
       'Famous landmark shaped like a pyramid',
@@ -55,11 +56,12 @@ const questions = {
   },
   leg3: {
     type: 'leg',
-    question: `The video shows Carmen Sandiego leaving a high-rise building in a city famous for 
-    its towering skyscrapers and bustling nightlife. The city is also known for its unique culture 
+    question: `The video shows Carmen Sandiego leaving a high-rise building in a city famous for
+    its towering skyscrapers and bustling nightlife. The city is also known for its unique culture
     and delicious cuisine. In the background, you can see a famous landmark shaped like a giant bean.`,
     guest: '',
-    image: '/carmen-sandiego-graphics_tokyo.jpg',
+    image: '/carmen-sandiego-graphics_world-2.jpg',
+    celebrityImage: '/carmen-sandiego-graphics_tokyo.jpg',
     clues: [
       'City famous for its towering skyscrapers and bustling nightlife',
       'Unique culture and delicious cuisine',
@@ -103,16 +105,16 @@ const questions = {
         question: `What type of sushi is considered the most traditional and consists of vinegared rice and seafood wrapped in seaweed?`,
         image: '/carmen-sandiego-graphics_sushi.jpg',
         answers: {
-          1: {
+          4: {
             option: 'Nigiri',
             correct: true,
             explanation:
               'Nigiri sushi is the most traditional type, consisting of a small mound of rice topped with a piece of seafood'
           },
-          2: {
+          5: {
             option: 'Maki'
           },
-          3: {
+          6: {
             option: 'Uramaki'
           }
         }
@@ -121,16 +123,16 @@ const questions = {
         question: `In what month does the cherry blossom season typically begin in Tokyo?`,
         image: '/carmen-sandiego-graphics_cherry.jpg',
         answers: {
-          1: {
+          7: {
             option: 'March',
             correct: true,
             explanation:
               'Cherry blossom season typically begins in late March or early April in Tokyo'
           },
-          2: {
+          8: {
             option: 'April'
           },
-          3: {
+          9: {
             option: 'May'
           }
         }
@@ -139,15 +141,15 @@ const questions = {
         question: `What is the highest rank a sumo wrestler can achieve?`,
         image: '/carmen-sandiego-graphics_Sumo.jpg',
         answers: {
-          1: {
+          10: {
             option: 'Yokozuna',
             correct: true,
             explanation: 'Yokozuna is the highest rank in sumo wrestling'
           },
-          2: {
+          11: {
             option: 'Ozeki'
           },
-          3: {
+          12: {
             option: 'Sekiwake'
           }
         }
@@ -156,15 +158,15 @@ const questions = {
         question: `What is the traditional hairstyle worn by geisha, often adorned with elaborate hair ornaments?`,
         image: '/carmen-sandiego-graphics_Geisha.jpg',
         answers: {
-          1: {
+          3: {
             option: 'Shimada',
             correct: true,
             explanation: 'Shimada is a traditional Japanese hairstyle often worn by geisha'
           },
-          2: {
+          14: {
             option: 'Bun'
           },
-          3: {
+          15: {
             option: 'Ponytail'
           }
         }
@@ -187,9 +189,9 @@ const questions = {
   },
   lockUp: {
     type: 'lockUp',
-    question: `The Chief Detective has provided additional information. You must find the loot, 
-    warrant, and crook hidden among these cards. Turn over one card at a time. If you uncover 
-    footsteps, your turn is over. If you uncover the loot, warrant or crook, you can flip over 
+    question: `The Chief Detective has provided additional information. You must find the loot,
+    warrant, and crook hidden among these cards. Turn over one card at a time. If you uncover
+    footsteps, your turn is over. If you uncover the loot, warrant or crook, you can flip over
     another. If you flip over all three, you win and will move to the next round.`,
     places: {
       1: {
@@ -279,7 +281,7 @@ const questions = {
       {
         question: 'Which European country is known for its canals and windmills?',
         answers: {
-          1: {
+          2: {
             option: 'Netherlands',
             correct: true
           }
@@ -288,7 +290,7 @@ const questions = {
       {
         question: 'What is the official language of Spain?',
         answers: {
-          1: {
+          3: {
             option: 'Spanish',
             correct: true
           }
@@ -297,7 +299,7 @@ const questions = {
       {
         question: 'Which European city is home to the Eiffel Tower?',
         answers: {
-          1: {
+          4: {
             option: 'Paris',
             correct: true
           }
@@ -306,7 +308,7 @@ const questions = {
       {
         question: 'What is the highest mountain in Europe?',
         answers: {
-          1: {
+          5: {
             option: 'Mont Blanc',
             correct: true
           }
@@ -315,7 +317,7 @@ const questions = {
       {
         question: 'Which European country is famous for its fjords?',
         answers: {
-          1: {
+          6: {
             option: 'Norway',
             correct: true
           }
@@ -324,7 +326,7 @@ const questions = {
       {
         question: 'What is the capital city of Italy?',
         answers: {
-          1: {
+          7: {
             option: 'Rome',
             correct: true
           }
@@ -333,7 +335,7 @@ const questions = {
       {
         question: 'Which European country is known for its Oktoberfest celebrations?',
         answers: {
-          1: {
+          8: {
             option: 'Germany',
             correct: true
           }
@@ -342,7 +344,7 @@ const questions = {
       {
         question: 'What is the currency used in most European countries?',
         answers: {
-          1: {
+          9: {
             option: 'Euro',
             correct: true
           }
@@ -351,7 +353,7 @@ const questions = {
       {
         question: 'Which European country is the smallest in terms of land area?',
         answers: {
-          1: {
+          10: {
             option: 'Vatican City',
             correct: true
           }
@@ -362,6 +364,7 @@ const questions = {
   finalChase: {
     type: 'finalChase',
     image: '/carmen-sandiego-graphics_Europe-2.jpg',
+    backImage: '/carmen-sandiego-graphics_Europe-2-No-Label.jpg',
     countries: [
       'France',
       'Spain',
