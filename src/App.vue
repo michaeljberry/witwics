@@ -16,7 +16,9 @@ watch(
 </script>
 
 <template>
-  <RouterView class="isolate" />
+  <main class="mx-auto align-items-center w-11/12">
+    <RouterView />
+  </main>
   <footer class="mx-auto mt-8 max-w-7xl">
     <ProgressBar :currentPath="currentPath" />
   </footer>

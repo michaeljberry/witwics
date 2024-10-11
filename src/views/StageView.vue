@@ -14,15 +14,10 @@ const stageInfo = ref()
 
 function loadStageInfo() {
     const stage = route.params.stage
-    console.log(stage)
     stageInfo.value = questions[stage]
-    console.log('stageInfo')
-    console.log(stageInfo)
 }
 
 function loadStage(stage) {
-    console.log(stage.type)
-    console.log(stageInfo)
     if (stage.type == 'leg') return leg
     if (stage.type == 'lightningRound') return lightningRound
     if (stage.type == 'wager') return wager

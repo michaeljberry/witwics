@@ -1,72 +1,75 @@
 <script setup>
 // import { ref } from vue
+import timer from './timer.vue';
 const props = defineProps({
-  stage: Object
+    stage: Object
 })
 
 function toggleHover(e) {
-  document.getElementsByClassName('clickedElement')[0].classList.toggle('hover')
+    document.getElementsByClassName('clickedElement')[0].classList.toggle('hover')
 }
 
 </script>
 
 <template>
-  <div>
-    <div class="w-full grid">
-      <div class="flip-card clickedElement">
-        <div class="flip-card-inner">
-          <div class="flip-card-front place-content-center grid">
-            <img v-if="props.stage.image" :src="props.stage.image" alt=""
-              class="rounded-md bg-white/5 h-auto w-4/5 justify-self-center" @click="toggleHover" />
-          </div>
-          <div class="flip-card-back place-content-center grid">
-            <img v-if="props.stage.backImage" :src="props.stage.backImage" alt=""
-              class="rounded-md bg-white/5 h-auto w-4/5 justify-self-center" @click="toggleHover" />
-          </div>
+    <div class="grid grid-cols-2 w-full">
+        <aside class="grid grid-cols-1 w-96 content-center border-r -mx-96 border-gray-200 px-4 py-6 sm:px-6 lg:px-8">
+            <div class="grid">
+                <timer timeLimit="45" />
+            </div>
+        </aside>
+        <div class="relative isolate grid grid-cols-1 -mx-64">
+            <div class="flip-card clickedElement">
+                <div class="flip-card-inner w-[972px] h-[640px] relative">
+                    <div class="flip-card-front w-full">
+                        <img v-if="props.stage.image" :src="props.stage.image" alt="" class="rounded-md inline"
+                            @click="toggleHover" />
+                    </div>
+                    <div class="flip-card-back w-full">
+                        <img v-if="props.stage.backImage" :src="props.stage.backImage" alt="" class="rounded-md inline"
+                            @click="toggleHover" />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
 .flip-card {
-  background-color: transparent;
-  position: relative;
-  /* width: 300px;
-  height: 270px; */
-  /* perspective: 1000px; */
+    background-color: transparent;
+    position: relative;
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* position: relative; */
+    /* width: 100%;
+    height: 100%; */
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .flip-card.hover .flip-card-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .flip-card-front,
 .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    position: absolute;
+    /* width: 100%;
+    height: 100%; */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .flip-card-front {
-  color: black;
+    color: black;
 }
 
 .flip-card-back {
-  color: white;
-  transform: rotateY(180deg);
+    color: white;
+    transform: rotateY(180deg);
 }
 </style>

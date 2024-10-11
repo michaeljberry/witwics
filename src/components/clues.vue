@@ -2,7 +2,6 @@
 const props = defineProps({
     clues: Array
 })
-console.log(props.clues)
 </script>
 
 <template>
