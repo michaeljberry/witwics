@@ -1,61 +1,60 @@
 <script setup>
-import question from '@/components/question.vue'
-import clues from '@/components/clues.vue'
-import answers from '@/components/answers.vue'
-
 const props = defineProps({
   stage: Object
 })
 
-function toggleHover(e) {
-  e.target.classList.toggle('hover')
-  document.getElementsByClassName('clickedElement')[0].classList.toggle('hover')
+function toggleHover(id) {
+  document.getElementById(id).querySelector('.flip-card').classList.toggle('hover')
 }
 
 </script>
 
 <template>
-  <ul role="list" class="grid grid-cols-1 gap-6 lg:grid-cols-4">
-    <li v-for="(place, key) in props.stage.places" :key="key"
-      class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow clickedElement">
-      <div class="flex flex-col p-8 flip-card" @click="toggleHover">
-        <div class="flip-card-inner">
-          <div class="flip-card-front place-content-center px-4">
-            <img v-if="place?.image" class="mx-auto h-32 w-32 flex-shrink-0 rounded-full" :src="place.image" alt="" />
-            <h3 class="text-sm font-medium text-gray-900">{{ place.location }}</h3>
-            <dl class="mt-1 flex flex-grow flex-col justify-between">
-              <dd class="text-sm text-gray-500">{{ place.description }}</dd>
-            </dl>
-          </div>
-          <div class="flip-card-back place-content-center">
-            <img v-if="!place?.item" class="mx-auto h-48 w-48 rounded-full" src="/footsteps.jpg" alt="" />
-            <img v-else-if="place.item == 'warrant'" class="mx-auto h-48 w-48 rounded-full object-scale-down"
-              src="/warrant.jpg" alt="" />
-            <img v-else-if="place.item == 'crook'" class="mx-auto h-48 w-48 rounded-full object-scale-down"
-              src="/slyfox.jpeg" alt="" />
+  <div class="">
+    <ul role="list" class="grid grid-cols-4 gap-4">
+      <li v-for="(place, key) in props.stage.places" :key="key" :id="key" @click.capture="toggleHover(key)"
+        class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white text-center shadow clickedElement">
+        <div class="flip-card justify-center w-auto h-auto p-4 m-4 grid">
+          <div class="flip-card-inner h-48 w-48 m-4 grid">
+            <div class="flip-card-front grid self-center">
+              <img v-if="place?.image" class="mx-auto h-24 w-1/2 rounded-full" :src="place.image" alt="" />
+              <h3 class="text-sm font-medium text-gray-900">{{ place.location }}</h3>
+              <dl class="mt-1">
+                <dd class="text-sm text-gray-500">{{ place.description }}</dd>
+              </dl>
+            </div>
+            <div class="flip-card-back">
+              <img v-if="!place?.item" class="mx-auto h-48 w-48 rounded-full" src="/footsteps.jpg" alt="" />
+              <img v-else-if="place.item == 'warrant'" class="mx-auto h-48 w-48 rounded-full object-scale-down"
+                src="/warrant.jpg" alt="" />
+              <img v-else-if="place.item == 'crook'" class="mx-auto h-48 w-48 rounded-full object-scale-down"
+                src="/slyfox.jpeg" alt="" />
+              <img v-else-if="place.item == 'loot'" class="mx-auto h-48 w-48 rounded-full object-scale-down"
+                src="/loot.jpeg" alt="" />
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 270px;
+  /* min-width: 300px;
+  min-height: 300px; */
   perspective: 1000px;
 }
 
 .flip-card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+  /* width: 100%;
+  height: 100%; */
+  /* text-align: center; */
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .flip-card.hover .flip-card-inner {
@@ -65,8 +64,8 @@ function toggleHover(e) {
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
