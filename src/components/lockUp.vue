@@ -15,7 +15,7 @@ function toggleHover(id) {
       <li v-for="(place, key) in props.stage.places" :key="key" :id="key" @click.capture="toggleHover(key)"
         class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white text-center shadow clickedElement">
         <div class="flip-card justify-center w-auto h-auto p-4 m-4 grid">
-          <div class="flip-card-inner h-48 w-48 m-4 grid">
+          <div class="flip-card-inner h-48 w-48 m-4 grid relative">
             <div class="flip-card-front grid self-center">
               <img v-if="place?.image" class="mx-auto h-24 w-1/2 rounded-full" :src="place.image" alt="" />
               <h3 class="text-sm font-medium text-gray-900">{{ place.location }}</h3>
@@ -40,21 +40,9 @@ function toggleHover(id) {
 </template>
 
 <style scoped>
-.flip-card {
-  background-color: transparent;
-  /* min-width: 300px;
-  min-height: 300px; */
-  perspective: 1000px;
-}
-
 .flip-card-inner {
-  position: relative;
-  /* width: 100%;
-  height: 100%; */
-  /* text-align: center; */
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .flip-card.hover .flip-card-inner {
@@ -64,18 +52,11 @@ function toggleHover(id) {
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  /* width: 100%;
-  height: 100%; */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-.flip-card-front {
-  color: black;
-}
-
 .flip-card-back {
-  color: white;
   transform: rotateY(180deg);
 }
 </style>
