@@ -22,6 +22,12 @@ npm install
 npm run dev
 ```
 
+### Compile, Hot-Reload and Host for Development
+
+```sh
+npm run host
+```
+
 ### Compile and Minify for Production
 
 ```sh
